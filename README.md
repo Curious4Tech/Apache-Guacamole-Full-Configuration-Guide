@@ -9,7 +9,7 @@ This repository provides a complete guide to configuring Apache Guacamole for re
   - Creating users in Guacamole.
   - Connecting Windows and Linux servers to Guacamole for remote access.
 
-- **Guacamole-Setup-On-Debian-12-Server**  
+- **Apache-Guacamole-Server-Setup-On-Debian 12**  
   This directory provides instructions for:
   - Installing and configuring Apache Guacamole on a Debian 12 server.
   - Setting up necessary dependencies and verifying the installation.
