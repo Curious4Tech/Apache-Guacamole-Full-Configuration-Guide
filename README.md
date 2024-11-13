@@ -332,7 +332,7 @@ http://<your-server-ip>:8080/guacamole
 
 ## Step 13. Troubleshooting
 
-If you encounter any issues, apart what I show you how to solve in **`Step 4`**:
+If you encounter any issues, apart of what I show you how to solve in **`Step 4`**:
 1. Check service status: **`sudo systemctl status guacd tomcat9 mariadb`**
 2. View logs: **`sudo tail -f /var/log/tomcat9/catalina.out`**
 3. Ensure all services are running and enabled
