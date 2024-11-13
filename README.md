@@ -86,10 +86,9 @@ sudo systemctl status guacd
 
 ![image](https://github.com/user-attachments/assets/cf8f0f46-967b-48a1-b121-394e80f71d6c)
 
-The problem is realated to **`sudo make`** command that we excuted previously.If you pay attention or look carefully at the end after exetuting that command, you should see something like in this screenshot.
+The problem is realated to **`sudo ./configure --with-init-dir=/etc/init.d`** command that we excuted previously.If you pay attention or look carefully at the end after exetuting that command, you should see something like in this screenshot.
 
-![image](https://github.com/user-attachments/assets/c6a0c7ca-5e06-49a8-a83b-bf0cb494e7c4)
-
+![image](https://github.com/user-attachments/assets/6a1e4e00-943d-4f2c-ba15-7396dca3b18a)
 
 ### Step 4. Solve problem (Optional, in case you accounter that type of problem)
 
