@@ -7,7 +7,7 @@ This guide provides step-by-step instructions for installing Apache Guacamole on
 
 ## Prerequisites
 
-- Debian operating system
+- Debian 12 operating system
 - Root or sudo privileges
 - Terminal access
 - Internet connection
