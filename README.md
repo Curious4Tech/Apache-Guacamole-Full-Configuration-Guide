@@ -4,7 +4,7 @@ This repository provides a complete guide to configuring Apache Guacamole for re
                                                                               
 ## Repository Structure
 
-- [Apache Guacamole Server Setup On Debian 12](./Apache%Guacamole%Server%Setup%On%Debian%12)
+- [Apache Guacamole Server Setup On Debian 12](./Apache-Guacamole-Server-Setup-On-Debian%12)
   This directory contains a step-by-step guide on:
   This directory provides instructions for:
   - Installing and configuring Apache Guacamole on a Debian 12 server.
