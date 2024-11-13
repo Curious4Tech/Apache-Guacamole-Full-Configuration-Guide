@@ -21,7 +21,6 @@ This guide provides a step-by-step setup for creating users and connecting both 
    - Default username is **`guacadmin`** with the password set during installation.
    - **Tip:** Change this default password after initial login for security.
 
-
 ![image](https://github.com/user-attachments/assets/6b0694c1-3227-4828-b6a2-62e3ba2ef29c)
 
 
@@ -29,7 +28,6 @@ This guide provides a step-by-step setup for creating users and connecting both 
    - Go to **Settings > Users**
    - Click **New User**.
   
-
 ![image](https://github.com/user-attachments/assets/6ad9822b-f766-422f-89d8-31c9905e52a3)
 
 
@@ -73,32 +71,61 @@ In this example, I’m creating a group named **`Servers`**. It will be placed u
 ![image](https://github.com/user-attachments/assets/9580ac91-6ffc-4f90-bddc-fafcb409b675)
 
 
-   - **Name**: Enter a recognizable name (**`your server name`**).
+   - **Name**: Enter a recognizable name (`Windows-Server`).
    - **Location**: Choose the group you previously created.
    - **Protocol** to **RDP** and complete these fields.
+
+     
 ![image](https://github.com/user-attachments/assets/811002e3-705f-4c99-8066-481a1ce0b235)
 
-   
-     - **Hostname**: Enter the IP or hostname of the Windows server.
-     - **Port**: Default is **3389**.
-     - **Username and Password**: Enter Windows server credentials.
-     - (Optional) **Security Mode**: Set to **NLA** or **RDP** as required.
-     - **Ignore the server certificate** : check it.
+
+   - **Hostname**: Enter the IP or hostname of the Windows server.
+   - **Port**: Default is **3389**.
+   - **Username and Password**: Enter Windows server credentials.
+   - **Domain** : Enter your name here (Optional).
+   - **Security Mode**: Set to **NLA** or **RDP** as required (Optional).
+   - **Ignore the server certificate** : check it.
+
+     
 ![image](https://github.com/user-attachments/assets/f07da366-a60a-41d9-a0ac-a7ce89795f7b)
 
-      - **Performance**: Check your preferred ones.
+
+   - **Performance**: Check your preferred ones.
 
  
  ![image](https://github.com/user-attachments/assets/7e7fb205-5aa2-4db9-ab7d-e58565a969d0)
-     - Save the connection: Scroll down a little bit and then click  on **`Save`**
+
+ 
+   - Save the connection: Scroll down a little bit and then click  on **`Save`**
+
      
 ![image](https://github.com/user-attachments/assets/8f0de78d-3e24-41fe-8705-e2a187308be8)
 
+
 You can also configure **time zone** and **keyboard layout** depending your location and language.
+ Our server is now added and ready to be connected or used
+
+ 
+![image](https://github.com/user-attachments/assets/453c7952-b2bc-479c-9979-37869d1fb45d)
 
 
 3. **Test the Connection:**
-   - On the Guacamole dashboard, select the Windows connection and verify successful connection.
+   - **Log out** from your Guacamole admin account, then log in using the newly created Guacamole user credentials (in this example, `TechLearner`).
+
+![image](https://github.com/user-attachments/assets/be2d7392-b093-4967-a8f6-c7c8fd10767f)
+
+   - After logging back in with your user account, click on the server name or screen to begin managing it in the Guacamole interface.
+
+
+![image](https://github.com/user-attachments/assets/1d0f4e0b-1839-4691-a159-efe48e6a1831)
+
+
+  -  Now you can securely and easily manage your windows server through Guacamole.
+
+
+![image](https://github.com/user-attachments/assets/80561af7-27fd-427b-9019-ca4d80287dd2)
+
+
 
 ### B. Adding a Linux Server Connection
 
@@ -107,21 +134,48 @@ You can also configure **time zone** and **keyboard layout** depending your loca
    - Open port **22** in firewall settings for SSH access.
 
 
-![image](https://github.com/user-attachments/assets/71a41224-bdcc-45e3-9d4f-743333cb7139)
+![image](https://github.com/user-attachments/assets/c887e61f-66c9-43b1-a2b0-502976ccef19)
 
 
 2. **Add the Linux Connection in Guacamole:**
+
+   - Re-log with your Guacamole admin account
    - Go to **Settings > Connections**.
-   - Click **New Connection**.
-   - Set **Protocol** to **SSH** and complete these fields:
-     - **Name**: Enter a recognizable name (e.g., “Linux Server”).
-     - **Hostname**: Enter the IP or hostname of the Linux server.
-     - **Port**: Default is **22**.
-     - **Username and Password**: Enter Linux server credentials (or an SSH key if required).
-   - Save the connection.
+   - Expand your connection group and then click on **New Connection**.
+
+![image](https://github.com/user-attachments/assets/fd5af8cd-1e58-4f0e-80d5-bfdc42dbfe6c)
+
+  - **Protocol** to **SSH** and complete these fields:
+  - **Name**: Enter a recognizable name, it doesn't have to be your hostname but it will be better if you use it directly. (e.g., “Linux-Server”).
+
+ 
+ ![image](https://github.com/user-attachments/assets/8ed20cd9-6c31-4b30-828e-94d898c4d7ac)
+
+
+ - **Hostname**: Enter the IP or hostname of the Linux server.
+ - **Port**: Default is **22**.
+![image](https://github.com/user-attachments/assets/d5059714-44b0-4866-b8e0-2c5350fdcdc9)
+
+- Save the connection: Nothing to be change, we are good to go for this demo.
 
 3. **Test the Connection:**
-   - On the Guacamole dashboard, select the Linux connection and verify successful connection.
+   - On the Guacamole dashboard, select the Linux connection and verify successful connection. It will prompt you to provide your username and password. Provide your user's  crendentials to authenticate.
+   - **Logon as :** Provide your username
+
+
+![image](https://github.com/user-attachments/assets/e920aaa0-a7e2-49e7-9488-7d7fa4bf6a8c)
+
+
+   - **Password:** Provide your  password
+  
+![image](https://github.com/user-attachments/assets/427a2acb-84da-468f-b46d-ae090aad5c5d)
+
+
+  -  Now you can securely and easily manage your linux server through Guacamole.
+
+
+![image](https://github.com/user-attachments/assets/0c6f95e0-90cb-4c9a-9bd9-59f0b6854128)
+
 
 ---
 
