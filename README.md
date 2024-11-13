@@ -93,7 +93,7 @@ The problem is realated to **`sudo ./configure --with-init-dir=/etc/init.d`** co
 ![image](https://github.com/user-attachments/assets/1eacc668-0329-4824-9379-421ab0ceb29d)
 
 
-## Step 4. Solve problem (Optional, in case you accounter that type of problem)
+## Step 4. Solving problem (Optional, in case you accounter that type of problem)
 
 It looks like we've successfully configured some parts of Guacamole, but the systemd units are not installed. This is what causing issues with starting guacd as a systemd service. Here’s how to solve it.
 
@@ -169,9 +169,9 @@ sudo apt-get install -y tomcat9 tomcat9-admin tomcat9-common tomcat9-user
 ![image](https://github.com/user-attachments/assets/aef56255-b35f-4f6c-a684-9cc3321caf26)
 
 
-### Step 6. Install Guacamole Web Application
+## Step 6. Install Guacamole Web Application
 
-# Download and deploy web application
+### Download and deploy web application
 
 ```bash
 cd /tmp
@@ -183,11 +183,11 @@ sudo mv guacamole-1.5.5.war /var/lib/tomcat9/webapps/guacamole.war
 ![image](https://github.com/user-attachments/assets/765db6da-94be-433d-ad30-a42f239b0ab5)
 
 
-# Create configuration directories
+### Create configuration directories
 sudo mkdir -p /etc/guacamole/{extensions,lib}
 
 
-### Step 7. Set Up MariaDB
+## Step 7. Set Up MariaDB
 
 ```bash
 
@@ -203,7 +203,7 @@ sudo mysql_secure_installation
 ![image](https://github.com/user-attachments/assets/330ccc1e-4bdb-4476-936c-341e5f46fdf1)
 
 
-# Log in to MariaDB and create a database and userfor our Guacamole server
+### Log in to MariaDB and create a database and userfor our Guacamole server
 
 ```bash
 # Log in to MariaDB
@@ -220,10 +220,10 @@ EXIT;
 ![image](https://github.com/user-attachments/assets/1d3693e5-6284-4f0e-9d24-adae7399ce35)
 
 
-### Step 7. Install MySQL Extension and Connector
+## Step 8. Install MySQL Extension and Connector
 
 
-# Download and install JDBC extension
+### Download and install JDBC extension
 
 ```bash
 cd /tmp
@@ -237,7 +237,7 @@ sudo mv guacamole-auth-jdbc-1.5.5/mysql/guacamole-auth-jdbc-mysql-1.5.5.jar /etc
 ![image](https://github.com/user-attachments/assets/b4e7ce66-3569-4f51-bb7f-3e4ac54eb2ea)
 
 
-# Download and install MySQL Connector
+### Download and install MySQL Connector
 
 ```bash
 sudo wget https://dev.mysql.com/get/Downloads/Connector-J/mysql-connector-j-9.1.0.tar.gz
@@ -250,7 +250,7 @@ sudo cp mysql-connector-j-9.1.0/mysql-connector-j-9.1.0.jar /etc/guacamole/lib/
 ![image](https://github.com/user-attachments/assets/ab49a75b-ebbf-4e34-aba3-453f627df0c8)
 
 
-# Initialize database schema
+### Initialize database schema
 
 ```bash
 
@@ -259,7 +259,7 @@ cat *.sql | sudo mysql -u root -p guacadb
 
 ```
 
-### Step 8. Configure Guacamole
+## Step 9. Configure Guacamole
 
 ```bash
 # Create and edit the properties file:
@@ -279,7 +279,7 @@ mysql-password: Your_Strong_Password_Here  # Replace with the same password used
 ![image](https://github.com/user-attachments/assets/b877df17-99af-4fc0-a491-dd574b932d3d)
 
 
-### Step 9. Configure guacd
+## Step 10. Configure guacd
 
 ```bash
 
@@ -296,14 +296,18 @@ bind_port = 4822
 ![image](https://github.com/user-attachments/assets/7000177c-8b0b-4450-8f71-d35ce075a025)
 
 
-### 10. Final Steps
+### Step 11. Final Steps
 
 ```bash
 # Restart all services
 sudo systemctl restart tomcat9 guacd mariadb
 ```
 
-## Accessing Guacamole
+
+![image](https://github.com/user-attachments/assets/e5d9da11-a695-44a3-8509-fb8156fb8eed)
+
+
+## Setp 12. Accessing Guacamole
 
 1. Open your web browser and navigate to:
 ```
@@ -311,14 +315,27 @@ http://<your-server-ip>:8080/guacamole
 ```
 
 2. Default login credentials:
-   - Username: `guacadmin`
-   - Password: `guacadmin`
+   - Username: **`guacadmin`**
+   - Password: **`guacadmin`**
+  
+
+![image](https://github.com/user-attachments/assets/cf5d2bd1-cde7-43ba-b26c-bd366e65e27d)
+
+  
+  ### Welcome to `Apache Guacamole`, you can now start connecting securely your servers.
+
+  
+  ![image](https://github.com/user-attachments/assets/81f930d2-6005-4f7d-a4fa-2ad7c6ffb1c3)
+
 
 > **Important Security Note**: Make sure to change the default password immediately after your first login!
 
-## Troubleshooting
+## Step 13. Troubleshooting
 
-If you encounter any issues:
-1. Check service status: `sudo systemctl status guacd tomcat9 mariadb`
-2. View logs: `sudo tail -f /var/log/tomcat9/catalina.out`
+If you encounter any issues, apart what I show you how to solve in **`Step 4`**:
+1. Check service status: **`sudo systemctl status guacd tomcat9 mariadb`**
+2. View logs: **`sudo tail -f /var/log/tomcat9/catalina.out`**
 3. Ensure all services are running and enabled
+-----
+Congratulations!
+You've successfully installed Apache Guacamole on your Debian 12 system. You can now start configuring connections and managing remote desktop access through the Guacamole web interface.
