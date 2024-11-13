@@ -5,20 +5,20 @@ A comprehensive installation guide for Apache Guacamole on Debian 12 Server, inc
 
 This guide provides step-by-step instructions for installing Apache Guacamole on Debian. Apache Guacamole is a clientless remote desktop gateway that supports standard protocols like VNC, RDP, and SSH.
 
-## Prerequisites
+# Prerequisites
 
 - Debian 12 operating system
 - Root or sudo privileges
 - Terminal access
 - Internet connection
 
-## Installation Steps
+# Installation Steps
 
-### Setp 1. Install Dependencies
+## Setp 1. Install Dependencies
 
 First, update your package list and install required dependencies:
 
-# Update package list
+### Update package list
 
 ```bash
 sudo apt-get update && sudo apt-get upgrade -y
@@ -28,7 +28,7 @@ sudo apt-get update && sudo apt-get upgrade -y
 ![image](https://github.com/user-attachments/assets/41bbd5fb-440a-4d46-a32f-2668cd2fe2a3)
 
 
-# Install required packages
+### Install required packages
 
 ```bash
 sudo apt-get install -y build-essential libcairo2-dev libjpeg62-turbo-dev libpng-dev libtool-bin uuid-dev libossp-uuid-dev libavcodec-dev libavformat-dev libavutil-dev libswscale-dev freerdp2-dev libpango1.0-dev libssh2-1-dev libtelnet-dev libvncserver-dev libwebsockets-dev libpulse-dev libssl-dev libvorbis-dev libwebp-dev
@@ -38,7 +38,8 @@ sudo apt-get install -y build-essential libcairo2-dev libjpeg62-turbo-dev libpng
 ![image](https://github.com/user-attachments/assets/8a0e9edd-9657-453d-a296-68908ba4047c)
 
 
-### Step 2. Download and Build Guacamole Server
+## Step 2. Download and Build Guacamole Server
+
 ```bash
 # Create and navigate to `/tmp`directory
  cd /tmp
@@ -53,7 +54,7 @@ sudo wget https://downloads.apache.org/guacamole/1.5.5/source/guacamole-server-1
 ![image](https://github.com/user-attachments/assets/3c9f7afb-73d3-4191-9673-1c8fdb4a0e0e)
 
 
-# Extract and build
+### Extract and build
 
 ```bash
 sudo tar -xzf guacamole-server-1.5.5.tar.gz
@@ -64,7 +65,7 @@ sudo ./configure --with-init-dir=/etc/init.d
 
 ![image](https://github.com/user-attachments/assets/543ba282-081d-4b13-a536-3326047bb56e)
 
-# Run these following commands to install guacamole server.
+### Run these following commands to install guacamole server.
 ```bash
 sudo make
 sudo make install
@@ -74,7 +75,7 @@ sudo ldconfig
 ![image](https://github.com/user-attachments/assets/72ba9ce7-0b4a-4cae-86cc-7e0a097984a8)
 
 
-### Step 3. Configure and Start guacd Service
+## Step 3. Configure and Start guacd Service
 
 ```bash
 # Start and enable guacd service
@@ -86,17 +87,19 @@ sudo systemctl status guacd
 
 ![image](https://github.com/user-attachments/assets/cf8f0f46-967b-48a1-b121-394e80f71d6c)
 
-The problem is realated to **`sudo ./configure --with-init-dir=/etc/init.d`** command that we excuted previously.If you pay attention or look carefully at the end after exetuting that command, you should see something like in this screenshot.
+The problem is realated to **`sudo ./configure --with-init-dir=/etc/init.d`** command that we excuted previously. After running or executing the  **`sudo ./configure --with-init-dir=/etc/init.d`** command if you see that  **` Systemd units: no`**, then you may accounter the same problem as mine here. Normally, you have to see : **` Systemd units:  /etc/systemd/system`**. So if you don't accounter that kind of problem, you can skip the **`Step 4`**.
 
-![image](https://github.com/user-attachments/assets/6a1e4e00-943d-4f2c-ba15-7396dca3b18a)
 
-### Step 4. Solve problem (Optional, in case you accounter that type of problem)
+![image](https://github.com/user-attachments/assets/1eacc668-0329-4824-9379-421ab0ceb29d)
+
+
+## Step 4. Solve problem (Optional, in case you accounter that type of problem)
 
 It looks like we've successfully configured some parts of Guacamole, but the systemd units are not installed. This is what causing issues with starting guacd as a systemd service. Here’s how to solve it.
 
 Let's make sure the systemd service file is correctly set up.
 
-# Create a systemd service file:
+### Create a systemd service file:
 
    1. Open a text editor and create a new file named **`guacd.service`** in the **`/etc/systemd/system/`** directory:
 ```bash
@@ -141,9 +144,9 @@ sudo systemctl status guacd
 ![image](https://github.com/user-attachments/assets/a5b6c39f-dc89-4657-afcf-ccd3626ff110)
 
 
-### Step 5. Since Guacamole is not compatible with Tomcat 10 (default in Debian 12), we need to install Tomcat 9:
+## Step 5. Since Guacamole is not compatible with Tomcat 10 (default in Debian 12), we need to install Tomcat 9:
 
- # Add Debian 11 (Bullseye) repository
+ ### Add Debian 11 (Bullseye) repository
  
 ```bash
 # Create new source file
@@ -156,7 +159,7 @@ sudo nano /etc/apt/sources.list.d/bullseye.list
 ![image](https://github.com/user-attachments/assets/34f4e4c2-264e-418f-826f-656dfb47f893)
 
 
-# Update and install Tomcat 9
+### Update and install Tomcat 9
 
 ```bash
 sudo apt-get update
