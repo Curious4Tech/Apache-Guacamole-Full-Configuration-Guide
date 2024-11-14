@@ -275,7 +275,7 @@ mysql-hostname: 127.0.0.1
 mysql-port: 3306
 mysql-database: guacadb
 mysql-username: guacadmin
-mysql-password: Your_Strong_Password_Here  # Replace with the same password used in Step 6
+mysql-password: Your_Strong_Password_Here  # Replace with the same password used in Step 7
 ```
 
 
