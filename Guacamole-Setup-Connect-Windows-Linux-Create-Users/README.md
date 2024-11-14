@@ -156,7 +156,7 @@ You can also configure **time zone** and **keyboard layout** depending your loca
  - **Port**: Default is **22**.
 ![image](https://github.com/user-attachments/assets/d5059714-44b0-4866-b8e0-2c5350fdcdc9)
 
-- Save the connection: Nothing to be change, we are good to go for this demo.
+- Save the connection: Nothing to be changed, we are good to go for this demo.
 
 3. **Test the Connection:**
    - On the Guacamole dashboard, select the Linux connection and verify successful connection. It will prompt you to provide your username and password. Provide your user's  crendentials to authenticate.
