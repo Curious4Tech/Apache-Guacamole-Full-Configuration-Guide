@@ -184,8 +184,11 @@ sudo mv guacamole-1.5.5.war /var/lib/tomcat9/webapps/guacamole.war
 
 
 ### Create configuration directories
+
+```bash
 sudo mkdir -p /etc/guacamole/{extensions,lib}
 
+```
 
 ## Step 7. Set Up MariaDB
 
